@@ -30,4 +30,7 @@ public class Vehicle {
 
     @Column(name = "vehicle_trim")
     private String trim;
+
+    @Column(name = "cars_class")
+    private String carClass;
 }

@@ -13,4 +13,5 @@ public class VehicleDto {
     private String model;
     private String year;
     private String trim;
+    private String carClass;
 }
