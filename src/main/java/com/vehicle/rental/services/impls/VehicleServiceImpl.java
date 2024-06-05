@@ -38,7 +38,7 @@ public class VehicleServiceImpl implements VehicleService {
         vehicleToBeUpdated.setModel(vehicleDto.getModel());
         vehicleToBeUpdated.setTrim(vehicleDto.getTrim());
         vehicleToBeUpdated.setYear(vehicleDto.getYear());
-        vehicleToBeUpdated.setCarClass(vehicleDto.getCarClass());
+        vehicleToBeUpdated.setVehicleClass(vehicleDto.getVehicleClass());
         Vehicle vehicle = vehicleRepository.save(vehicleToBeUpdated);
 
         return mapper.map(vehicle, VehicleDto.class);
@@ -67,8 +67,8 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public List<VehicleDto> getAllVehiclesByCarClass(String carClass) {
-        List<Vehicle> vehicles = vehicleRepository.findByCarClass(carClass);
+    public List<VehicleDto> getVehiclesByClass(String vehicleClass) {
+        List<Vehicle> vehicles = vehicleRepository.findAllByVehicleClass(vehicleClass);
         List<VehicleDto> vehicleDtos = new ArrayList<>();
         for(Vehicle vehicle : vehicles) {
             vehicleDtos.add(mapper.map(vehicle, VehicleDto.class));

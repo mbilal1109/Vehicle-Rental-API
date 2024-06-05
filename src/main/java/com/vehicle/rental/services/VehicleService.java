@@ -15,5 +15,5 @@ public interface VehicleService {
 
     VehicleDto getVehicleById(String vehicleId);
 
-    List<VehicleDto> getAllVehiclesByCarClass(String carClass);
+    List<VehicleDto> getVehiclesByClass(String vehicleClass);
 }

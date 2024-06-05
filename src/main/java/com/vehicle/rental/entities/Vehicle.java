@@ -31,6 +31,6 @@ public class Vehicle {
     @Column(name = "vehicle_trim")
     private String trim;
 
-    @Column(name = "cars_class")
-    private String carClass;
+    @Column(name = "vehicle_class")
+    private String vehicleClass;
 }
