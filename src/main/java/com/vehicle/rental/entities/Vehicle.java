@@ -28,9 +28,9 @@ public class Vehicle {
     @Column(name = "vehicle_year")
     private String year;
 
-    @Column(name = "vehicle_trim")
-    private String trim;
-
     @Column(name = "vehicle_class")
     private String vehicleClass;
+
+    @Column(name = "vehicle_daily_rate")
+    private Double dailyRate;
 }

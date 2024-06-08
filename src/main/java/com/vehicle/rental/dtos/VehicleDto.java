@@ -12,6 +12,6 @@ public class VehicleDto {
     private String make;
     private String model;
     private String year;
-    private String trim;
     private String vehicleClass;
+    private Double dailyRate;
 }

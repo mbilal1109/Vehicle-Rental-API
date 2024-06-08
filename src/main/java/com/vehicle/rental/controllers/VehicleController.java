@@ -60,4 +60,10 @@ public class VehicleController {
         List<VehicleDto> vehicleDtos = vehicleService.getVehiclesByClass(vehicleClass);
         return new ResponseEntity<>(vehicleDtos, HttpStatus.OK);
     }
+
+    @GetMapping("/rate/{dailyRate}")
+    public ResponseEntity<List<VehicleDto>> getDailyRateLessThanEqual(@PathVariable Double dailyRate) {
+        List<VehicleDto> vehicleDtos = vehicleService.getDailyRateLessThanEqual(dailyRate);
+        return new ResponseEntity<>(vehicleDtos, HttpStatus.OK);
+    }
 }

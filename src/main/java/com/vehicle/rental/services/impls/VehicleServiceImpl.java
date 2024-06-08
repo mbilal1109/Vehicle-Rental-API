@@ -36,9 +36,9 @@ public class VehicleServiceImpl implements VehicleService {
 
         vehicleToBeUpdated.setMake(vehicleDto.getMake());
         vehicleToBeUpdated.setModel(vehicleDto.getModel());
-        vehicleToBeUpdated.setTrim(vehicleDto.getTrim());
         vehicleToBeUpdated.setYear(vehicleDto.getYear());
         vehicleToBeUpdated.setVehicleClass(vehicleDto.getVehicleClass());
+        vehicleToBeUpdated.setDailyRate(vehicleDto.getDailyRate());
         Vehicle vehicle = vehicleRepository.save(vehicleToBeUpdated);
 
         return mapper.map(vehicle, VehicleDto.class);
@@ -69,6 +69,16 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public List<VehicleDto> getVehiclesByClass(String vehicleClass) {
         List<Vehicle> vehicles = vehicleRepository.findAllByVehicleClass(vehicleClass);
+        List<VehicleDto> vehicleDtos = new ArrayList<>();
+        for(Vehicle vehicle : vehicles) {
+            vehicleDtos.add(mapper.map(vehicle, VehicleDto.class));
+        }
+        return vehicleDtos;
+    }
+
+    @Override
+    public List<VehicleDto> getDailyRateLessThanEqual(Double dailyRate) {
+        List<Vehicle> vehicles = vehicleRepository.findByDailyRateLessThanEqual(dailyRate);
         List<VehicleDto> vehicleDtos = new ArrayList<>();
         for(Vehicle vehicle : vehicles) {
             vehicleDtos.add(mapper.map(vehicle, VehicleDto.class));
