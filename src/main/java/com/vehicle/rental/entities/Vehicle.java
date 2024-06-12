@@ -1,10 +1,9 @@
 package com.vehicle.rental.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,4 +32,8 @@ public class Vehicle {
 
     @Column(name = "vehicle_daily_rate")
     private Double dailyRate;
+
+    @OneToMany
+    @JoinColumn(name = "vehicle_id")
+    private List<RentalInfo> rentalInfos;
 }
