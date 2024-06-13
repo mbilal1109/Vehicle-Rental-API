@@ -1,7 +1,6 @@
 package com.vehicle.rental.services.impls;
 
 import com.vehicle.rental.dtos.RentalInfoDto;
-import com.vehicle.rental.dtos.VehicleDto;
 import com.vehicle.rental.entities.RentalInfo;
 import com.vehicle.rental.entities.Vehicle;
 import com.vehicle.rental.repositories.RentalInfoRepository;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -74,5 +72,16 @@ public class RentalInfoServiceImpl implements RentalInfoService {
     public RentalInfoDto getRentalInfoById(int rentalId) {
         RentalInfo rentalInfo = rentalInfoRepository.findById(rentalId).orElseThrow(() -> new RuntimeException("Rental Info with given Id not found"));
         return mapper.map(rentalInfo, RentalInfoDto.class);
+    }
+
+    @Override
+    public List<RentalInfoDto> getAllRentalsByVehicleId(String vehicleId) {
+        Vehicle vehicle = vehicleRepository.findById(vehicleId).orElseThrow(() -> new RuntimeException("Vehicle with given id not found"));
+        List<RentalInfo> infos = rentalInfoRepository.findAllByVehicle(vehicle);
+        List<RentalInfoDto> rentalInfoDtos = new ArrayList<>();
+        for(RentalInfo info : infos) {
+            rentalInfoDtos.add(mapper.map(info, RentalInfoDto.class));
+        }
+        return rentalInfoDtos;
     }
 }

@@ -11,4 +11,5 @@ public interface RentalInfoService {
     void deleteRentalInfo(int rentalId);
     List<RentalInfoDto> getAllRentalInfos();
     RentalInfoDto getRentalInfoById(int rentalId);
+    List<RentalInfoDto> getAllRentalsByVehicleId(String vehicleId);
 }

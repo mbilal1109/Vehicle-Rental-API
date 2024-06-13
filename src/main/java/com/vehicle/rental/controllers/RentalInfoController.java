@@ -27,4 +27,10 @@ public class RentalInfoController {
         List<RentalInfoDto> rentalInfoDtos = rentalInfoService.getAllRentalInfos();
         return new ResponseEntity<>(rentalInfoDtos, HttpStatus.OK);
     }
+
+    @GetMapping("/{vehicleId}/vehicle")
+    public ResponseEntity<List<RentalInfoDto>> getAllRentalsByVehicle(@PathVariable String vehicleId) {
+        List<RentalInfoDto> rentalInfoDtos = rentalInfoService.getAllRentalsByVehicleId(vehicleId);
+        return new ResponseEntity<>(rentalInfoDtos, HttpStatus.OK);
+    }
 }
