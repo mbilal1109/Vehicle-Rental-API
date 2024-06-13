@@ -32,8 +32,4 @@ public class Vehicle {
 
     @Column(name = "vehicle_daily_rate")
     private Double dailyRate;
-
-    @OneToMany
-    @JoinColumn(name = "vehicle_id")
-    private List<RentalInfo> rentalInfos;
 }

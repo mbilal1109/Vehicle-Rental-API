@@ -1,6 +1,9 @@
 package com.vehicle.rental.dtos;
 
+import com.vehicle.rental.entities.RentalInfo;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter

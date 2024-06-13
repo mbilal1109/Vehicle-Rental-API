@@ -1,5 +1,6 @@
 package com.vehicle.rental.dtos;
 
+import com.vehicle.rental.entities.Vehicle;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,6 @@ public class RentalInfoDto {
     private Date rentalDate;
     private Date returnDate;
     private double totalRate;
-    private boolean returned;
-    private VehicleDto vehicleDto;
+    private boolean isReturned;
+    private Vehicle vehicle;
 }

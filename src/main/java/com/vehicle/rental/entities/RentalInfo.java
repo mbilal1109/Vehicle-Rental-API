@@ -31,5 +31,9 @@ public class RentalInfo {
     private double totalRate;
 
     @Column(name = "rental_returned")
-    private boolean returned;
+    private boolean isReturned;
+
+    @ManyToOne
+    @JoinColumn(name = "vehicle_id")
+    private Vehicle vehicle;
 }

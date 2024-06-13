@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RentalInfoService {
 
-    RentalInfoDto createRentalInfoWithVehicle(RentalInfoDto rentalInfoDto);
+    RentalInfoDto createRentalInfoWithVehicle(String vehicleId, RentalInfoDto rentalInfoDto);
     RentalInfoDto updateRentalInfo(int rentalId, RentalInfoDto rentalInfoDto);
     void deleteRentalInfo(int rentalId);
     List<RentalInfoDto> getAllRentalInfos();
